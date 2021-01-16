@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My resume</title>
-    <link rel="shortcut icon" href="favicon.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./favicon.png" type="image/png">
+    <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
@@ -14,7 +14,7 @@
 <body id="top">
     <div class="wrapper">
         <aside class="sidebar">
-            <img class="my-photo" src="photo5467724819756855644.jpg" alt="my photo">
+            <img class="my-photo" src="./photo5467724819756855644.jpg" alt="my photo">
             <div class="all-contacts">
                 <div class="contacts-container">
                     <h3 class="contacts-title">Contacts</h3>
@@ -27,7 +27,7 @@
                     </a>
                 </div>
                 <div class="social-container">
-                    <h3 class="networks-title">Where to find me?</h3>
+                    <h3 class="networks-title">Where to find me</h3>
                     <a class="networks-link" href="https://www.instagram.com/katiarovneiko/" title="Instagram">
                         <i class="fa fa-instagram networks-link-type" aria-hidden="true"></i>
                         <span class="social-network-addr">instagram.com/katiarovneiko/</span>
@@ -40,11 +40,14 @@
                     </a>
                 </div>                
             </div>
-
-        </aside>
+        </aside>        
+        <select id="langs" class= "langs-switcher">
+            <option value="ua">ua</option>
+            <option value="en">en</option>
+        </select>
         <div class="about-me-container">
             <div class="info-container">
-                <h1 class="name">Катя Ровнейко</h1>
+                <h1 class="name">Katya Rovneyko</h1>
             </div>
             <div>
                 <h3 class="about-me-title about-me-title--first">Досвід роботи</h3>
@@ -123,6 +126,18 @@
                 else clearInterval(t);
             }, 5);
         }
+
+        var langs = document.getElementById('langs');
+        langs.addEventListener('change', function() {
+            if (langs.value === 'ua') location.replace('/Resume/');
+            if (langs.value === 'en') location.replace('/Resume/en/');
+        });
+
+        window.addEventListener('load', function() {
+            var path = location.pathname;
+            if (path === '/Resume/') langs.value = 'ua';
+            else if (path === '/Resume/en/') langs.value = 'en';
+        });
     </script>
 </body>
 
