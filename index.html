@@ -40,8 +40,11 @@
                     </a>
                 </div>                
             </div>
-
-        </aside>
+        </aside>        
+        <select id="langs" class= "langs-switcher">
+            <option value="ua">ua</option>
+            <option value="en">en</option>
+        </select>
         <div class="about-me-container">
             <div class="info-container">
                 <h1 class="name">Катя Ровнейко</h1>
@@ -123,6 +126,18 @@
                 else clearInterval(t);
             }, 5);
         }
+
+        var langs = document.getElementById('langs');
+        langs.addEventListener('change', function() {
+            if (langs.value === 'ua') location.replace('/Resume/');
+            if (langs.value === 'en') location.replace('/Resume/en/');
+        });
+
+        window.addEventListener('load', function() {
+            var path = location.pathname;
+            if (path === '/Resume/') langs.value = 'ua';
+            else if (path === '/Resume/en/') langs.value = 'en';
+        });
     </script>
 </body>
 
